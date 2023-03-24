@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "RTL Hebrew Support for OpenAI Chat",
+  "version": "1.0",
+  "description": "Changes input direction to RTL if input contains Hebrew characters.",
+  "permissions": ["scripting"],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://chat.openai.com/*"],
+      "js": ["contentScript.js"]
+    }
+  ]
+}
