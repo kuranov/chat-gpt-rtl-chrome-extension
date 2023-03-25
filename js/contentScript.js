@@ -3,7 +3,9 @@ chrome.storage.sync.get("rtlEnabled", (data) => {
 });
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    toggleRTL(request.rtlEnabled);
+    if (request.action === 'toggleRTL') {
+        toggleRTL(request.enabled);
+    }
 });
 
 const rtlCss =
