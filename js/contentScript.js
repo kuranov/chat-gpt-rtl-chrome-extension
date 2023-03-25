@@ -28,16 +28,15 @@ const rtlCss =
 .text-base div.lg\\:translate-x-full:has(>button) {
     --tw-translate-x: -100%;
 }
-:has(textarea) {
+main :has(textarea) {
     padding-right: 0;
     padding-left: 1rem;
 }
-:has(textarea) > button,
-:has(textarea) > button.md\\:right-2 {
+main :has(textarea) > button,
+main :has(textarea) > button.md\\:right-2 {
     right: initial;
     left: 0.5rem;
-}
-`;
+}`;
 
 function toggleRTL(rtlEnabled) {
     const styleId = "rtl-style";
