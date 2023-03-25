@@ -24,7 +24,7 @@ function setIcon(iconName) {
       "128": `/icons/icon_128_${iconName}.png`,
     },
   });
-};
+}
 
 function updateIcon(url) {
   chrome.storage.sync.get("rtlEnabled", (data) => {
@@ -36,12 +36,12 @@ function updateIcon(url) {
   });
 }
 
-
 function toggleRTL(tab) {
   chrome.storage.sync.get("rtlEnabled", (data) => {
     const newState = !data.rtlEnabled;
     chrome.storage.sync.set({ rtlEnabled: newState }, () => {
       updateIcon(tab.url);
+      chrome.tabs.sendMessage(tab.id, { action: "toggleRTL", enabled: newState });
     });
   });
 }
